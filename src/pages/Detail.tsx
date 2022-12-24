@@ -9,6 +9,8 @@ import ActionPanel from "../components/ActionPanel";
 import StyledButton from "../components/StyledButton";
 import StyledGrid from "../components/StyledGrid";
 import PageHeadingTextWrapper from "../components/PageHeadingTextWrapper";
+import LocationSelect from "../components/LocationSelect";
+import { LocationSelectOptionType } from "../type/Type";
 
 
 const Detail = () => {
@@ -16,6 +18,7 @@ const Detail = () => {
   const navigate = useNavigate()
   const [currLocationHighlighted, setCurrLocationHighlighted] = useState(null)
   const [currActionHighlighted, setCurrActionHighlighted] = useState(null)
+  const [selectedLocation, setSelectedLocation] = useState<LocationSelectOptionType>(null)
 
   // TODO: handle async data fetching
   useEffect(() => {
@@ -74,6 +77,9 @@ const BackBtnWrapper = styled.div`
             <h2>Current Location</h2>
             <p className='val__text'>Storage 1</p>
           </div>
+
+          <p>Change Location:</p>
+          <LocationSelect location={selectedLocation} setLocation={setSelectedLocation} />
         </ActionPanel>
 
         <div>

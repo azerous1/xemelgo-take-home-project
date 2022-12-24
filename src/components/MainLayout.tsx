@@ -1,9 +1,8 @@
 import styled from 'styled-components/macro';
 import React from "react"
 import { useNavigate } from 'react-router-dom';
-import StyledSelect from './NativeStyledSelect';
-import { USERS_NAME } from '../constants/Constants';
-import UserSelect from './Select';
+import UserSelect from './UserSelect';
+import { UserSelectOptionType } from '../type/Type';
 
 const PUBLIC_URL = process.env.PUBLIC_URL
 
@@ -52,10 +51,12 @@ const StyledFooter = styled.header`
 `
 
 interface MainLayoutProps {
+  user: UserSelectOptionType,
+  setUser: React.Dispatch<React.SetStateAction<UserSelectOptionType>>,
   children: React.ReactNode;
 }
 
-const MainLayout = ({ children } : MainLayoutProps) => {
+const MainLayout = ({ user, setUser, children } : MainLayoutProps) => {
   const navigate = useNavigate()
 
   const handleLogoClick = () => {
@@ -93,31 +94,13 @@ const MainLayout = ({ children } : MainLayoutProps) => {
   `
 
   const UserSelectOptionWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    line-height: var(--spacing-sm);
-
-    .role {
-      color: var(--grey-highlight)
-    }
+    width: 200px;
   `
 
   const selectEle = 
-    // <StyledSelect>
-    //   {USERS_NAME.map(name => {
-    //     return (
-    //       <option value={name}>
-    //         <UserSelectOptionWrapper>
-    //           <p>{name}</p>
-    //           <p className="role">Administrator</p>
-    //         </UserSelectOptionWrapper>
-    //       </option>
-    //     )
-    //   })}
-    // </StyledSelect>
-
-    <UserSelect />
+    <UserSelectOptionWrapper>
+      <UserSelect user={user} setUser={setUser}/>
+    </UserSelectOptionWrapper>
 
   return (
     <Wrapper>

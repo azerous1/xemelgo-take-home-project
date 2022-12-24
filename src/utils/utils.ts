@@ -8,8 +8,6 @@ export function insertKey(key: string, value: any, obj: any, idx: number) {
     if (idx === Object.keys(obj).length) {
         const copy = {...obj}
         copy[key] = value
-
-        console.log('res: ', copy)
         return copy
     }
 

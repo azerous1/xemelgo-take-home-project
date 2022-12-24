@@ -16,15 +16,15 @@ const StyledTable = ({
   currHighlightedValue,
   setCurrHighlightedVal} : StyledTableProps) => {
 
-  const header = colNames.map(colName => {
+  const header = colNames.map((colName, key) => {
     return (
-      <th className='th'>{colName}</th>
+      <th className='th' key={`${colName}${key}`}>{colName}</th>
     )
   })
 
-  const row = rowData.map(rowDataObj => {
-    const cells = Object.keys(rowDataObj).map(key => {
-      return <td className='td'>{rowDataObj[key]}</td>
+  const row = rowData.map((rowDataObj, key) => {
+    const cells = Object.keys(rowDataObj).map((objKey, key) => {
+      return <td className='td' key={`${objKey}${key}`}>{rowDataObj[objKey]}</td>
     })
 
     const handleClick = () => {
@@ -36,7 +36,10 @@ const StyledTable = ({
     }
 
     return (
-      <tr className={`tr ${rowDataObj[tableHighlightAttrType] === currHighlightedValue ? 'active' : ''}`} onClick={handleClick}>
+      <tr 
+        className={`tr ${rowDataObj[tableHighlightAttrType] === currHighlightedValue ? 'active' : ''}`} 
+        onClick={handleClick}
+        key={`${key}${Object.keys(rowDataObj)[0]}`}>
         {cells}
       </tr>
     )

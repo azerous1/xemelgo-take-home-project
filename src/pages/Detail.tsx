@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import styled from 'styled-components/macro';
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import StyledButtonOutlined from "../components/StyledButtonOutlined"
 import LOCATION_ACTION_HISTORY_MOCK_DATA from "../mock-data/LocationAndHistoryData";
 import { ACTION_HISTORY_TABLE_HEADER, LOCATION_HISTORY_TABLE_HEADER } from "../constant/const";

@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Routes, Route, Navigate } from 'react-router-dom';
+import MainLayout from './components/MainLayout';
+import Dashboard from './pages/DashBoard';
+import Detail from './pages/Detail';
+import GlobalStyle from './theme/GlobalStyle';
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <GlobalStyle />
+        <MainLayout>
+          <Routes>
+            <Route index path='/dashboard' element={<Dashboard />} />
+            <Route path='/dashboard/:id' element={<Detail />}/>
+            <Route path='*' element={<Navigate replace to='dashboard' />}/>
+          </Routes>
+        </MainLayout>
     </div>
   );
 }

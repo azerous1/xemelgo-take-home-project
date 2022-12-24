@@ -12,7 +12,7 @@ import PageHeadingTextWrapper from "../components/PageHeadingTextWrapper";
 
 
 const Detail = () => {
-  const { id } = useParams()
+  // const { id } = useParams()
   const navigate = useNavigate()
 
   // TODO: handle async data fetching

@@ -6,7 +6,7 @@ const LOCATION_ACTION_HISTORY_MOCK_DATA = {
             timeStamp: '10:20 AM Dec 12'
         },
         {
-            location: 'Storage 1',
+            location: 'Storage 5',
             timeStamp: '10:20 AM Dec 12'
         },
         {
@@ -14,7 +14,7 @@ const LOCATION_ACTION_HISTORY_MOCK_DATA = {
             timeStamp: '10:20 AM Dec 12'
         },
         {
-            location: 'Storage 1',
+            location: 'Storage 3',
             timeStamp: '10:20 AM Dec 12'
         },
         {
@@ -30,7 +30,7 @@ const LOCATION_ACTION_HISTORY_MOCK_DATA = {
             timeStamp: '10:20 AM Dec 12'
         },
         {
-            userName: 'Yichi',
+            userName: 'Stacy',
             actionName: 'Scanned',
             timeStamp: '10:20 AM Dec 12'
         },
@@ -40,7 +40,7 @@ const LOCATION_ACTION_HISTORY_MOCK_DATA = {
             timeStamp: '10:20 AM Dec 12'
         },
         {
-            userName: 'Yichi',
+            userName: 'John',
             actionName: 'Scanned',
             timeStamp: '10:20 AM Dec 12'
         },

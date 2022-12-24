@@ -8,6 +8,7 @@ const variables = css`
     --dark-blue: #0b0f28;
     --grey: #979799;
     --grey-highlight: #E2E2EA;
+    --row-highlight: #F1F1F2;
 
     --font: 'Mulish', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 

@@ -1,10 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import styled from 'styled-components/macro';
 import { useNavigate } from "react-router-dom"
 import StyledButtonOutlined from "../components/StyledButtonOutlined"
 import LOCATION_ACTION_HISTORY_MOCK_DATA from "../mock-data/LocationAndHistoryData";
-import { ACTION_HISTORY_TABLE_HEADER, LOCATION_HISTORY_TABLE_HEADER } from "../constant/const";
-import { StyledTable, tableHeaderFactory, tableRowFactory } from "../components/StyledTable";
+import { ACTION_HISTORY_TABLE_HEADER, LOCATION_HISTORY_TABLE_HEADER } from "../constants/Constants";
+import StyledTable from "../components/StyledTable";
 import ActionPanel from "../components/ActionPanel";
 import StyledButton from "../components/StyledButton";
 import StyledGrid from "../components/StyledGrid";
@@ -14,6 +14,8 @@ import PageHeadingTextWrapper from "../components/PageHeadingTextWrapper";
 const Detail = () => {
   // const { id } = useParams()
   const navigate = useNavigate()
+  const [currLocationHighlighted, setCurrLocationHighlighted] = useState(null)
+  const [currActionHighlighted, setCurrActionHighlighted] = useState(null)
 
   // TODO: handle async data fetching
   useEffect(() => {
@@ -23,12 +25,6 @@ const Detail = () => {
   const handleClickBackToDashboard = () => {
     navigate('/dashboard')
   }
-
-const locationHistoryTableHeader = tableHeaderFactory(LOCATION_HISTORY_TABLE_HEADER)
-const locationHistoryTableRows = tableRowFactory(LOCATION_ACTION_HISTORY_MOCK_DATA.location)
-
-const actionHistoryTableHeader = tableHeaderFactory(ACTION_HISTORY_TABLE_HEADER)
-const actionHistoryTableRows = tableRowFactory(LOCATION_ACTION_HISTORY_MOCK_DATA.action)
 
 const TableTitleWrapper = styled.div`
   display: flex;
@@ -79,40 +75,36 @@ const BackBtnWrapper = styled.div`
             <p className='val__text'>Storage 1</p>
           </div>
         </ActionPanel>
+
         <div>
           <TableTitleWrapper>
             <h1 className='table__title'>Location History</h1>
             <span className='italic'>Last 6 locations</span>
           </TableTitleWrapper>
-          <StyledTable cellSpacing="0">
-              <thead className='table__header'>
-                <tr className='table__row'>
-                  {locationHistoryTableHeader}
-                </tr>
-              </thead>
-              <tbody>
-                {locationHistoryTableRows}
-              </tbody>
-            </StyledTable>
+
+          <StyledTable 
+            colNames={LOCATION_HISTORY_TABLE_HEADER}
+            rowData={LOCATION_ACTION_HISTORY_MOCK_DATA.location} 
+            tableHighlightAttrType={'location'}
+            currHighlightedValue={currLocationHighlighted}
+            setCurrHighlightedVal={setCurrLocationHighlighted}  
+          />
         
-            <TableTitleWrapper>
-              <h1 className='table__title'>Action History</h1>
-              <span className='italic'>Last 6 actions</span>
-            </TableTitleWrapper>
-            <StyledTable cellSpacing="0">
-              <thead className='table__header'>
-                <tr className='table__row'>
-                  {actionHistoryTableHeader}
-                </tr>
-              </thead>
-              <tbody>
-                {actionHistoryTableRows}
-              </tbody>
-            </StyledTable>
+          <TableTitleWrapper>
+            <h1 className='table__title'>Action History</h1>
+            <span className='italic'>Last 6 actions</span>
+          </TableTitleWrapper>
+            
+          <StyledTable 
+            colNames={ACTION_HISTORY_TABLE_HEADER}
+            rowData={LOCATION_ACTION_HISTORY_MOCK_DATA.action} 
+            tableHighlightAttrType={'userName'}
+            currHighlightedValue={currActionHighlighted}
+            setCurrHighlightedVal={setCurrActionHighlighted}  
+          />
         </div>
       </StyledGrid>
 
-      
       <BackBtnWrapper>
         <StyledButtonOutlined onClick={handleClickBackToDashboard}>
           Back

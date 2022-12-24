@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro';
 import React from "react"
 import { useNavigate } from 'react-router-dom';
+import StyledSelect from './NativeStyledSelect';
+import { USERS_NAME } from '../constants/Constants';
+import UserSelect from './Select';
 
 const PUBLIC_URL = process.env.PUBLIC_URL
 
@@ -89,6 +92,33 @@ const MainLayout = ({ children } : MainLayoutProps) => {
     cursor: pointer;
   `
 
+  const UserSelectOptionWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: var(--spacing-sm);
+
+    .role {
+      color: var(--grey-highlight)
+    }
+  `
+
+  const selectEle = 
+    // <StyledSelect>
+    //   {USERS_NAME.map(name => {
+    //     return (
+    //       <option value={name}>
+    //         <UserSelectOptionWrapper>
+    //           <p>{name}</p>
+    //           <p className="role">Administrator</p>
+    //         </UserSelectOptionWrapper>
+    //       </option>
+    //     )
+    //   })}
+    // </StyledSelect>
+
+    <UserSelect />
+
   return (
     <Wrapper>
       <StyledHeader>
@@ -96,8 +126,9 @@ const MainLayout = ({ children } : MainLayoutProps) => {
           <img className='logo' src={`${PUBLIC_URL}/logo.jpg`} alt="xemelgo logo" />
           <h1 className='heading'>Item Dashboard</h1>
         </LogoWrapper>
-        <h1 className='heading'>User Toggle</h1>
+        {selectEle} 
       </StyledHeader>
+
       <ContentWrapper>
         {children}
       </ContentWrapper>

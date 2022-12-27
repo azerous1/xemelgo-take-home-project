@@ -9,27 +9,28 @@ interface UserSelectProps {
   setUser: React.Dispatch<React.SetStateAction<UserSelectOptionType>>
 }
 
+const UserSelectOptionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 0;
+
+  .role {
+    color: var(--grey);
+    font-size: var(--fz-xs);
+    margin-top: var(--spacing-xxs);
+  }
+`
+
+const options = USERS.map((userObj) => {
+  return {
+    label: userObj.name,
+    value: userObj.name,
+    role: userObj.role
+  }
+})
+
 const UserSelect = ({ user, setUser }: UserSelectProps) => {
-  const UserSelectOptionWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    line-height: 0;
-
-    .role {
-      color: var(--grey);
-      font-size: var(--fz-xs);
-      margin-top: var(--spacing-xxs);
-    }
-  `
-
-  const options = USERS.map((userObj) => {
-    return {
-      label: userObj.name,
-      value: userObj.name,
-      role: userObj.role
-    }
-  })
 
   const formatOptionLabel = ({ label, role }: UserSelectOptionType) => (
     <UserSelectOptionWrapper>

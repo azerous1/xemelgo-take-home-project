@@ -33,6 +33,29 @@ interface DetailPageProps {
   userName: string
 }
 
+const TableTitleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    .table__title {
+      color: var(--black);
+      font-size: var(--fz-lg);
+    }
+
+    .italic {
+      color: var(--grey);
+      font-style: italic;
+      font-size: var(--fz-sm);
+      margin-left: var(--spacing-xs);
+    }
+  `
+
+  const BackBtnWrapper = styled.div`
+    margin: var(--spacing-xl) 0;
+`
+
 const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
   const navigate = useNavigate()
   const { id } = useParams()
@@ -57,6 +80,7 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
   })
 
   useEffect(() => {
+    
     const apiStore = new APIStore()
     const fetchLocationAndActionHistory = async () => {
       const locationHistoryRes = await apiStore.getLocationHistory(
@@ -73,9 +97,10 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
       const formattedActionHistory = formatActionHistoryRow(actionHistoryRes)
       setActionHistory(formattedActionHistory)
     }
-
-    fetchLocationAndActionHistory()
-  }, [currItem.locationHistory, currItem.actionHistory])
+    if (currItem) {
+      fetchLocationAndActionHistory()
+    }
+  }, [currItem])
 
   const handleClickBackToDashboard = () => {
     navigate('/dashboard')
@@ -91,29 +116,6 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
       setItemData(updatedItemData)
     }
   }
-
-  const TableTitleWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-
-    .table__title {
-      color: var(--black);
-      font-size: var(--fz-lg);
-    }
-
-    .italic {
-      color: var(--grey);
-      font-style: italic;
-      font-size: var(--fz-sm);
-      margin-left: var(--spacing-xs);
-    }
-  `
-
-  const BackBtnWrapper = styled.div`
-    margin: var(--spacing-xl) 0;
-  `
 
   return (
     <>

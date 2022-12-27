@@ -56,46 +56,46 @@ interface MainLayoutProps {
   children: React.ReactNode
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+`
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: var(--site-max-width);
+  padding: 0 var(--spacing-xl);
+  margin: var(--spacing-lg) var(--spacing-xl);
+
+  @media (max-width: 576px) {
+    max-width: 80vw;
+  }
+`
+
+const LogoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
+
+const UserSelectOptionWrapper = styled.div`
+  width: 200px;
+`
+
 const MainLayout = ({ user, setUser, children }: MainLayoutProps) => {
   const navigate = useNavigate()
 
   const handleLogoClick = () => {
     navigate('/dashboard')
   }
-
-  const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-  `
-  const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: var(--site-max-width);
-    padding: 0 var(--spacing-xl);
-    margin: var(--spacing-lg) var(--spacing-xl);
-
-    @media (max-width: 576px) {
-      max-width: 80vw;
-    }
-  `
-
-  const LogoWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  `
-
-  const UserSelectOptionWrapper = styled.div`
-    width: 200px;
-  `
 
   const selectEle = (
     <UserSelectOptionWrapper>

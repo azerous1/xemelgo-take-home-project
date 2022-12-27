@@ -1,5 +1,4 @@
-
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 const StyledButtonOutlined = styled.button`
   background-color: var(--white);
@@ -10,6 +9,6 @@ const StyledButtonOutlined = styled.button`
   height: 35px;
   cursor: pointer;
   font-weight: 500;
-  padding: var(--spacing-xs)  var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
 `
 export default StyledButtonOutlined

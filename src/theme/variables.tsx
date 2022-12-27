@@ -1,14 +1,14 @@
-import { css } from 'styled-components/macro';
+import { css } from 'styled-components/macro'
 
 const variables = css`
   :root {
     --black: #343434;
     --white: #ffffff;
-    --blue: #4A90FF;
+    --blue: #4a90ff;
     --dark-blue: #0b0f28;
     --grey: #979799;
-    --grey-highlight: #E2E2EA;
-    --row-highlight: #F1F1F2;
+    --grey-highlight: #e2e2ea;
+    --row-highlight: #f1f1f2;
 
     --font: 'Mulish', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
@@ -36,6 +36,6 @@ const variables = css`
 
     --site-max-width: 1300px;
   }
-`;
+`
 
-export default variables;
+export default variables

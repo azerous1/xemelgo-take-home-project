@@ -1,5 +1,4 @@
-
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 const StyledLink = styled.a`
   text-decoration: none;
@@ -8,6 +7,6 @@ const StyledLink = styled.a`
   height: 35px;
   cursor: pointer;
   font-weight: 500;
-  padding: var(--spacing-xs)  0p;
+  padding: var(--spacing-xs) 0p;
 `
 export default StyledLink

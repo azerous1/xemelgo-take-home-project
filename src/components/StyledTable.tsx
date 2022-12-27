@@ -1,30 +1,35 @@
-
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 interface StyledTableProps {
-  colNames: string[],
-  rowData: any[], 
-  tableHighlightAttrType: string,
-  currHighlightedValue: string | null,
+  colNames: string[]
+  rowData: any[]
+  tableHighlightAttrType: string
+  currHighlightedValue: string | null
   setCurrHighlightedVal: React.Dispatch<React.SetStateAction<null>>
 }
 
 const StyledTable = ({
   colNames,
-  rowData, 
+  rowData,
   tableHighlightAttrType,
   currHighlightedValue,
-  setCurrHighlightedVal} : StyledTableProps) => {
-
+  setCurrHighlightedVal
+}: StyledTableProps) => {
   const header = colNames.map((colName, key) => {
     return (
-      <th className='th' key={`${colName}${key}`}>{colName}</th>
+      <th className="th" key={`${colName}${key}`}>
+        {colName}
+      </th>
     )
   })
 
   const row = rowData.map((rowDataObj, key) => {
     const cells = Object.keys(rowDataObj).map((objKey, key) => {
-      return <td className='td' key={`${objKey}${key}`}>{rowDataObj[objKey]}</td>
+      return (
+        <td className="td" key={`${objKey}${key}`}>
+          {rowDataObj[objKey]}
+        </td>
+      )
     })
 
     const handleClick = () => {
@@ -36,10 +41,15 @@ const StyledTable = ({
     }
 
     return (
-      <tr 
-        className={`tr ${rowDataObj[tableHighlightAttrType] === currHighlightedValue ? 'active' : ''}`} 
+      <tr
+        className={`tr ${
+          rowDataObj[tableHighlightAttrType] === currHighlightedValue
+            ? 'active'
+            : ''
+        }`}
         onClick={handleClick}
-        key={`${key}${Object.keys(rowDataObj)[0]}`}>
+        key={`${key}${Object.keys(rowDataObj)[0]}`}
+      >
         {cells}
       </tr>
     )
@@ -47,14 +57,10 @@ const StyledTable = ({
 
   return (
     <TableStyleWrapper cellSpacing="0">
-      <thead className='table__header'>
-        <tr className='table__row'>
-          {header}
-        </tr>
+      <thead className="table__header">
+        <tr className="table__row">{header}</tr>
       </thead>
-      <tbody>
-        {row}
-      </tbody>
+      <tbody>{row}</tbody>
     </TableStyleWrapper>
   )
 }
@@ -63,7 +69,6 @@ const TableStyleWrapper = styled.table`
   border: 1px solid var(--grey-highlight);
   border-radius: var(--border-radius-subtle);
   width: 100%;
-  
 
   .table__header {
     background-color: var(--blue);
@@ -74,9 +79,9 @@ const TableStyleWrapper = styled.table`
     height: 50px;
     width: 100%;
   }
-  
+
   .th {
-    padding: var(--spacing-xs)  var(--spacing-lg);
+    padding: var(--spacing-xs) var(--spacing-lg);
     text-align: left;
     font-weight: 600;
     font-size: var(--fz-md);
@@ -84,7 +89,7 @@ const TableStyleWrapper = styled.table`
 
   .td {
     color: var(--black);
-    padding: var(--spacing-md)  var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
     border-bottom: 1px solid var(--grey-highlight);
     text-align: left;
     font-weight: 500;
@@ -98,11 +103,11 @@ const TableStyleWrapper = styled.table`
 
   @media (max-width: 576px) {
     .th {
-      padding: var(--spacing-xs)  var(--spacing-sm);
+      padding: var(--spacing-xs) var(--spacing-sm);
     }
 
-  .td {
-      padding: var(--spacing-xs)  var(--spacing-sm);
+    .td {
+      padding: var(--spacing-xs) var(--spacing-sm);
     }
   }
 `

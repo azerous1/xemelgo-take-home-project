@@ -1,5 +1,4 @@
-
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 const StyledButton = styled.button`
   background-color: var(--blue);
@@ -10,6 +9,6 @@ const StyledButton = styled.button`
   border: none;
   cursor: pointer;
   font-weight: 600;
-  padding: var(--spacing-xs)  var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
 `
 export default StyledButton

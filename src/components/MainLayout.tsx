@@ -1,8 +1,8 @@
-import styled from 'styled-components/macro';
-import React from "react"
-import { useNavigate } from 'react-router-dom';
-import UserSelect from './UserSelect';
-import { UserSelectOptionType } from '../type/Type';
+import styled from 'styled-components/macro'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import UserSelect from './UserSelect'
+import { UserSelectOptionType } from '../type/Type'
 
 const PUBLIC_URL = process.env.PUBLIC_URL
 
@@ -10,9 +10,9 @@ const StyledHeader = styled.header`
   background-color: var(--white);
   height: 80px;
   width: 100%;
-  box-shadow: 10px -1px 5px 12px rgba(0,0,0,0.27);
-  -webkit-box-shadow: 10px -1px 5px 12px rgba(0,0,0,0.27);
-  -moz-box-shadow: 10px -1px 5px 12px rgba(0,0,0,0.27);
+  box-shadow: -2px 4px 5px 0px rgba(0,0,0,0.22);
+  -webkit-box-shadow: -2px 4px 5px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: -2px 4px 5px 0px rgba(0,0,0,0.22);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
 
   .logo {
     width: 50px;
-    height: 50px
+    height: 50px;
   }
 
   .heading {
@@ -51,12 +51,12 @@ const StyledFooter = styled.header`
 `
 
 interface MainLayoutProps {
-  user: UserSelectOptionType,
-  setUser: React.Dispatch<React.SetStateAction<UserSelectOptionType>>,
-  children: React.ReactNode;
+  user: UserSelectOptionType
+  setUser: React.Dispatch<React.SetStateAction<UserSelectOptionType>>
+  children: React.ReactNode
 }
 
-const MainLayout = ({ user, setUser, children } : MainLayoutProps) => {
+const MainLayout = ({ user, setUser, children }: MainLayoutProps) => {
   const navigate = useNavigate()
 
   const handleLogoClick = () => {
@@ -97,29 +97,30 @@ const MainLayout = ({ user, setUser, children } : MainLayoutProps) => {
     width: 200px;
   `
 
-  const selectEle = 
+  const selectEle = (
     <UserSelectOptionWrapper>
-      <UserSelect user={user} setUser={setUser}/>
+      <UserSelect user={user} setUser={setUser} />
     </UserSelectOptionWrapper>
+  )
 
   return (
     <Wrapper>
       <StyledHeader>
         <LogoWrapper onClick={handleLogoClick}>
-          <img className='logo' src={`${PUBLIC_URL}/logo.jpg`} alt="xemelgo logo" />
-          <h1 className='heading'>Item Dashboard</h1>
+          <img
+            className="logo"
+            src={`${PUBLIC_URL}/logo.jpg`}
+            alt="xemelgo logo"
+          />
+          <h1 className="heading">Dashboard</h1>
         </LogoWrapper>
-        {selectEle} 
+        {selectEle}
       </StyledHeader>
 
-      <ContentWrapper>
-        {children}
-      </ContentWrapper>
-      <StyledFooter>
-        © Xemelgo 2022. Built by Yichi Zhang
-      </StyledFooter>
+      <ContentWrapper>{children}</ContentWrapper>
+      <StyledFooter>© Xemelgo 2022. Built by Yichi Zhang</StyledFooter>
     </Wrapper>
   )
 }
 
-export default MainLayout;
+export default MainLayout

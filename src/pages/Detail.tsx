@@ -73,7 +73,6 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
   )
 
   useEffect(() => {
-    console.log('here')
     if (!itemData || !currItem) {
       navigate('/dashboard')
     }
@@ -86,7 +85,7 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
       const locationHistoryRes = await apiStore.getLocationHistory(
         currItem.locationHistory
       )
-      console.log(locationHistoryRes)
+      
       const formatedLocationHistoryData =
         formatLocationHistoryRow(locationHistoryRes)
       setLocationHistory(formatedLocationHistoryData)

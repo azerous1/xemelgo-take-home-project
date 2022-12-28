@@ -48,16 +48,15 @@ export function formatActionHistoryRow(
 
 export function formatTimestamp(timestamp: string) {
   const date = new Date(timestamp)
-  console.log(date)
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'PM' : 'AM';
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let ampm = hours >= 12 ? 'PM' : 'AM';
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
   let minutesStr = minutes < 10 ? '0'+ minutes : minutes;
   const month = MONTH_ABBREVIATIONS[date.getMonth()]
   const day = date.getDate()
-  var strTime = hours + ':' + minutesStr + ' ' + ampm + ' ' + month + ' ' + day;
+  let strTime = hours + ':' + minutesStr + ' ' + ampm + ' ' + month + ' ' + day;
 
 
   return strTime

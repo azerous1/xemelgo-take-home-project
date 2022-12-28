@@ -1,4 +1,6 @@
+import React from 'react'
 import styled from 'styled-components/macro'
+
 
 interface StyledTableProps {
   colNames: string[]
@@ -54,6 +56,8 @@ const StyledTable = ({
       </tr>
     )
   })
+
+  console.log('table rendered')
 
   return (
     <TableStyleWrapper cellSpacing="0">
@@ -111,4 +115,4 @@ const TableStyleWrapper = styled.table`
     }
   }
 `
-export default StyledTable
+export default React.memo(StyledTable)

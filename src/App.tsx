@@ -24,14 +24,13 @@ const App = () => {
   useEffect(() => {
     const fetchRowData = async () => {
     const apiStore = new APIStore()
-    
+
       try {
         const data = await apiStore.getAllItems()
         setItemData(data)
-        console.log('finish setting item data')
         setIsLoading(false)
       } catch(error) {
-        console.log('error catched')
+        console.log(error)
       } 
     }
 

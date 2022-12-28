@@ -57,8 +57,6 @@ const StyledTable = ({
     )
   })
 
-  console.log('table rendered')
-
   return (
     <TableStyleWrapper cellSpacing="0">
       <thead className="table__header">

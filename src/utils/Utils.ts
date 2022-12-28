@@ -19,7 +19,6 @@ export function insertKey(key: string, value: any, obj: any, idx: number) {
     return ac
   }, {})
 
-  // console.log('res: ', res)
   return res
 }
 

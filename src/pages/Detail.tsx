@@ -111,7 +111,6 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
     if (currItem) {
       await apiStore.insertActionHistory(currItem._id, userName, getActionType(currItem.itemSolutionType))
       const updatedItemData = await apiStore.getAllItems()
-      console.log('new item data: ', updatedItemData)
       setItemData(updatedItemData)
     }
   }

@@ -33,7 +33,6 @@ const LocationSelect = ({
     if (newLocation) {
       await apiStore.insertLocationHistory(itemId, newLocation.value)
       const updatedItemData = await apiStore.getAllItems()
-      console.log('new item data: ', updatedItemData)
       setItemData(updatedItemData)
       setLocation(newLocation)
     }

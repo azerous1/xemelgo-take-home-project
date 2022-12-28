@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:80'
+axios.defaults.baseURL = 'http://xemelgo-server.yichi-zhang.com'
 axios.defaults.headers['Content-Type'] = 'application/json'
 
 export default class APIStore {
@@ -46,8 +46,8 @@ export default class APIStore {
         })
       }
 
-      const res = await axios.post('update-location-history', config)
-      console.log(res)
+      await axios.post('update-location-history', config)
+
     } catch (error) {
       return error
     }
@@ -62,8 +62,9 @@ export default class APIStore {
           action: action
         })
       }
-      const res = await axios.post('update-action-history', config)
-      console.log(res)
+
+      await axios.post('update-action-history', config)
+
     } catch (error) {
       return error
     }

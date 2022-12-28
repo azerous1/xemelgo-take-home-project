@@ -57,7 +57,6 @@ export function formatTimestamp(timestamp: string) {
   const day = date.getDate()
   let strTime = hours + ':' + minutesStr + ' ' + ampm + ' ' + month + ' ' + day;
 
-
   return strTime
 }
 

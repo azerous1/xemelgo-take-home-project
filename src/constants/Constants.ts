@@ -17,22 +17,23 @@ export const USERS = [
     role: 'Administrator'
   },
   {
-    name: 'Stacy',
+    name: 'Maria',
     role: 'Customer Support'
   },
   {
-    name: 'Yash',
+    name: 'Leo',
     role: 'Worker'
   },
   {
-    name: 'Atttwawa',
+    name: 'Aayush',
     role: 'Worker'
   },
   {
-    name: 'Zhang',
+    name: 'John',
     role: 'Worker'
   }
 ]
+
 export const DASHBOARD_TABLE_COLS = ['Item', 'Solution', 'Location', 'Detail']
 export const LOCATION_HISTORY_TABLE_HEADER = ['Location', 'Timestamp']
 export const ACTION_HISTORY_TABLE_HEADER = ['User', 'Action', 'Timestamp']

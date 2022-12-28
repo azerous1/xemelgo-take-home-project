@@ -10,13 +10,17 @@ interface LocationSelectProps {
   itemId: string
   setLocation: React.Dispatch<React.SetStateAction<LocationSelectOptionType>>
   setItemData: React.Dispatch<React.SetStateAction<ItemEntry[]>>
+  userName: string
+  actionName: string
 }
 
 const LocationSelect = ({
   location,
   setItemData,
   setLocation,
-  itemId
+  itemId,
+  userName,
+  actionName
 }: LocationSelectProps) => {
   const apiStore = new APIStore()
 
@@ -32,6 +36,7 @@ const LocationSelect = ({
   ) => {
     if (newLocation) {
       await apiStore.insertLocationHistory(itemId, newLocation.value)
+      await apiStore.insertActionHistory(itemId, userName, actionName)
       const updatedItemData = await apiStore.getAllItems()
       setItemData(updatedItemData)
       setLocation(newLocation)

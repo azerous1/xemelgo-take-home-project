@@ -149,6 +149,8 @@ const Detail = ({ itemData, setItemData, userName }: DetailPageProps) => {
             setLocation={setSelectedLocation}
             itemId={currItem._id}
             setItemData={setItemData}
+            userName={userName}
+            actionName={getLocationSelectPrompt(currItem.itemSolutionType)}
           />
         </ActionPanel>
 

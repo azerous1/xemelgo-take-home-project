@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://xemelgo-server.yichi-zhang.com'
+axios.defaults.baseURL = 'https://xemelgo-server.yichi-zhang.com'
 axios.defaults.headers['Content-Type'] = 'application/json'
 
 export default class APIStore {
